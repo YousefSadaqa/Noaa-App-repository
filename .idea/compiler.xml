@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="noaa-usecases-impl" />
+        <module name="noaa-model" />
+        <module name="noaa-usecases-spec" />
+        <module name="noaa-DAO" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="noaa-DAO" target="1.8" />
+      <module name="noaa-model" target="1.8" />
+      <module name="noaa-parent" target="1.8" />
+      <module name="noaa-usecases-impl" target="1.8" />
+      <module name="noaa-usecases-spec" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,5 @@
+USAF   WBAN  STATION NAME                  CTRY ST CALL  LAT     LON      ELEV(M) BEGIN    END
+
+007005 99999 CWOS 07005                                                           20120127 20120127
+007011 99999 CWOS 07011                                                           20120101 20121129
+007018 99999 WXPOD 7018                                  +00.000 +000.000 +7018.0 20130710 20130730
