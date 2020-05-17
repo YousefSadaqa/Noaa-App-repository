@@ -31,6 +31,7 @@
           <element id="archive" name="noaa-DAO-1.0-SNAPSHOT.jar">
             <element id="module-output" name="noaa-DAO" />
           </element>
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -1,4 +1,10 @@
-<%--
+<%@ page import="jo.edu.htu.noaa.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="jo.edu.htu.noaa.DisableUser" %>
+<%@ page import="jo.edu.htu.noaa.web.servlets.DisableUserServlets" %>
+<%@ page import="jo.edu.htu.noaa.users.DisableUserHandler" %>
+<%@ page import="jo.edu.htu.DBUsersRepository" %>
+<%@ page import="jo.edu.htu.UsersRepository" %><%--
   Created by IntelliJ IDEA.
   User: Sadaqa
   Date: 5/17/2020
@@ -28,49 +34,37 @@
 <body>
 
 <h2>Users Management</h2>
-
+<%
+    List<User> users = (List<User>) request.getAttribute("users");
+%>
 <table>
     <tr>
         <th>Username</th>
         <th>Name</th>
         <th>E-mail</th>
+        <th>Status</th>
         <th></th>
     </tr>
+    <%
+        for (User user : users) {
+    %>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%user.getUsername();%>
+        </td>
+        <td><%user.getName();%></td>
+        <td><%
+            user.getEmail();
+        %></td>
+        <td><%
+            if (user.getStatus().equals("INACTIVE")) {
+                request.setAttribute("status", "Enable");
+            }
+            request.setAttribute("status", "Disable");
+        %>
+            <a name="status"></a>
+        </td>
     </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    <% }%>
 </table>
 
 </body>

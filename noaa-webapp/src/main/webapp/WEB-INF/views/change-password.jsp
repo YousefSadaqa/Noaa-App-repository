@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Sadaqa
   Date: 5/17/2020
-  Time: 2:22 AM
+  Time: 11:12 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,27 +12,17 @@
 
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/add-user" method="post">
+<form action="${pageContext.request.contextPath}/change-password" method="post">
     <div class="container">
-        <h1>Add User</h1>
-        <p>Please fill in this form to create an User.</p>
+        <h1>Change Password</h1>
         <hr>
-        <label><b>Username</b></label>
-        <input type="text" placeholder="username" name="username" required>
+        <label><b>Old Password</b></label>
+        <input type="text" placeholder="old password" name="oldPassword" required>
 
-        <label><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
-
-        <label><b>Name</b></label>
-        <input type="text" placeholder="Name" name="name" required>
-
-        <select name="status">
-            <option value="ACTIVE">ACTIVE></option>
-            <option value="INACTIVE">INACTIVE></option>
-        </select>
+        <label><b>new Password</b></label>
+        <input type="text" placeholder="new password" name="newPassword" required>
         <hr>
-
-        <button type="submit" class="registerbtn">Add User</button>
+        <button type="submit" class="registerbtn">Change Password</button>
     </div>
 
 </form>

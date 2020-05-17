@@ -19,13 +19,23 @@ public class ListStationsServlets extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String usaf = String.valueOf(req.getAttribute("usaf"));
-        String wban = String.valueOf(req.getAttribute("wban"));
-        Double lan = Double.parseDouble(String.valueOf(req.getAttribute("lan")));
-        Double lat = Double.parseDouble(String.valueOf(req.getAttribute("lat")));
+        refreshView(req, resp);
+        return;
+
+    }
+
+    private void refreshView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String usaf = req.getParameter("usaf");
+        String wban =req.getParameter("wban");
+        Double lan = Double.valueOf(req.getParameter("lon"));
+        Double lat = Double.valueOf(req.getParameter("lot"));
         listStationsHandler.list(new ListStationsRequest(usaf, wban, lan, lat));
+        forwardToView(req, resp);
+        return;
+    }
+
+    private void forwardToView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/list-stations.jsp");
         requestDispatcher.forward(req, resp);
-
     }
 }

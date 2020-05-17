@@ -15,10 +15,8 @@ import java.io.IOException;
 public class AddUserServlets extends HttpServlet {
     AddUserHandler addUserHandler;
 
-
     public AddUserServlets(AddUserHandler addUserHandler) {
         this.addUserHandler = addUserHandler;
-
     }
 
     @Override
@@ -28,12 +26,13 @@ public class AddUserServlets extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = String.valueOf(req.getAttribute("username"));
-        String name = String.valueOf(req.getAttribute("name"));
-        String email = String.valueOf(req.getAttribute("email"));
-        String password = String.valueOf(req.getAttribute("password"));
-        String status = String.valueOf(req.getAttribute("status"));
+        String username = req.getParameter("username");
+        String password = username;
+        String email = req.getParameter("email");
+        String name = req.getParameter("name");
+        String status = req.getParameter("status");
         User user = new User();
+        user.setName(name);
         user.setUsername(username);
         user.setEmail(email);
         user.setStatus(Status.valueOf(status));

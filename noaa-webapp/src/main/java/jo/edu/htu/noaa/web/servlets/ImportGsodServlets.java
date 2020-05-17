@@ -44,16 +44,10 @@ public class ImportGsodServlets extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fileDate = req.getParameter("fileDate");
-        System.out.println("fileDate parameter: " + fileDate);
         String gsodFile = req.getParameter("stationsFile");
-        System.out.println("gsodFile as parameter: " + gsodFile);
 
         Part part = req.getPart("gsodFile");
-        System.out.println("name: " + part.getName());
-        System.out.println("content-type: " + part.getContentType());
-        System.out.println("size of the file: " + part.getSize());
         Path fileToImport = Files.createTempFile(part.getSubmittedFileName(), ".temp");
-        System.out.println(fileToImport);
         part.write(fileToImport.toString());
 
         ImportGSODResult importGSODResult = importGSODHandler.importGSOD(new ImportGSODRequest(fileToImport));
