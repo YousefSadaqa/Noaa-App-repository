@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/noaa-parent.iml" filepath="$PROJECT_DIR$/noaa-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/noaa-usecases-impl/noaa-usecases-impl.iml" filepath="$PROJECT_DIR$/noaa-usecases-impl/noaa-usecases-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/noaa-usecases-spec/noaa-usecases-spec.iml" filepath="$PROJECT_DIR$/noaa-usecases-spec/noaa-usecases-spec.iml" />
+      <module fileurl="file://$PROJECT_DIR$/noaa-webapp/noaa-webapp.iml" filepath="$PROJECT_DIR$/noaa-webapp/noaa-webapp.iml" />
     </modules>
   </component>
 </project>

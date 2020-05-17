@@ -6,10 +6,10 @@ public class ListGSODRequest {
 
     private String usaf;
     private String wban;
-    private LocalDate readingDateFrom;
-    private LocalDate getReadingDateTo;
+    private String readingDateFrom;
+    private String getReadingDateTo;
 
-    public ListGSODRequest(String usaf, String wban, LocalDate readingDateFrom, LocalDate getReadingDateTo) {
+    public ListGSODRequest(String usaf, String wban, String readingDateFrom, String getReadingDateTo) {
         this.usaf = usaf;
         this.wban = wban;
         this.readingDateFrom = readingDateFrom;
@@ -24,11 +24,11 @@ public class ListGSODRequest {
         return wban;
     }
 
-    public LocalDate getGetReadingDateTo() {
+    public String getGetReadingDateTo() {
         return getReadingDateTo;
     }
 
-    public LocalDate getReadingDateFrom() {
+    public String getReadingDateFrom() {
         return readingDateFrom;
     }
 }

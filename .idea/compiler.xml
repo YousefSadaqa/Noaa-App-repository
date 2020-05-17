@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="noaa-usecases-impl" />
         <module name="noaa-model" />
+        <module name="noaa-webapp" />
         <module name="noaa-usecases-spec" />
         <module name="noaa-DAO" />
       </profile>
@@ -18,6 +19,7 @@
       <module name="noaa-parent" target="1.8" />
       <module name="noaa-usecases-impl" target="1.8" />
       <module name="noaa-usecases-spec" target="1.8" />
+      <module name="noaa-webapp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

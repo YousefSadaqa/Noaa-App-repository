@@ -27,7 +27,11 @@
             <version>2.7.0</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>jo.edu.htu.upskilling</groupId>
+            <artifactId>noaa-DAO</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

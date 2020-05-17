@@ -4,6 +4,16 @@ public class User {
 
     private String username;
     private String password;
+    private String Name;
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
     private String email;
     private Status status;
 
