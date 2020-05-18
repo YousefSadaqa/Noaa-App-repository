@@ -11,7 +11,7 @@
     <title>Import GSOD file</title>
 </head>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/import-gosd" enctype="multipart/form-data">
+<form method="post" action="${pageContext.request.contextPath}/import-result" enctype="multipart/form-data">
     <table>
 
         <tr>

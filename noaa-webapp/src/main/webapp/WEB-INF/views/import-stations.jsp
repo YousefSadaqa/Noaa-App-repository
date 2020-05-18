@@ -11,7 +11,7 @@
     <title>Import Stations file</title>
 </head>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/importBIS" enctype="multipart/form-data">
+<form method="post" action="${pageContext.request.contextPath}/import-result" enctype="multipart/form-data">
     <table>
         <tr>
             <td>BIS file</td>

@@ -8,10 +8,7 @@ import jo.edu.htu.noaa.stations.ImportStationsRequest;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,12 +48,23 @@ public class ImportGsodServlets extends HttpServlet {
         part.write(fileToImport.toString());
 
         ImportGSODResult importGSODResult = importGSODHandler.importGSOD(new ImportGSODRequest(fileToImport));
-        req.setAttribute("total number of parsed records", importGSODResult.getTotal());
-        req.setAttribute("new records", importGSODResult.getNewRecords());
-        req.setAttribute("Updated records", importGSODResult.getUpdated());
-        req.setAttribute("total Stations in Database ", importGSODResult.getTotalInDatabase());
-
+        addCookies(resp, importGSODResult);
         forwardToView(req, resp);
+    }
+
+    private void addCookies(HttpServletResponse resp, ImportGSODResult importGSODResult) {
+        String totalParsed = String.valueOf(importGSODResult.getTotal());
+        String newRecords = String.valueOf(importGSODResult.getNewRecords());
+        String updatedRecords = String.valueOf(importGSODResult.getUpdated());
+        String totalInDatabase = String.valueOf(importGSODResult.getTotalInDatabase());
+        Cookie updatedRecordsCookie = new Cookie("updatedRecords", updatedRecords);
+        Cookie totalInDatabaseCookie = new Cookie("totalInDatabase", totalInDatabase);
+        Cookie newRecordsCookie = new Cookie("newRecord", newRecords);
+        Cookie totalParsedCookie = new Cookie("totalParsed", totalParsed);
+        resp.addCookie(newRecordsCookie);
+        resp.addCookie(totalParsedCookie);
+        resp.addCookie(updatedRecordsCookie);
+        resp.addCookie(totalInDatabaseCookie);
     }
 
     private void forwardToView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

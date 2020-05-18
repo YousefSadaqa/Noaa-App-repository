@@ -6,10 +6,7 @@ import jo.edu.htu.noaa.stations.ImportStationsResult;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -57,12 +54,23 @@ public class ImportStationsServlets extends HttpServlet {
 
         ImportStationsResult importStationsResult = importStationsHandler.importStations(new ImportStationsRequest(fileToImport));
 
-        req.setAttribute("total number of parsed records", importStationsResult.getTotal());
-        req.setAttribute("new records", importStationsResult.getNewRecords());
-        req.setAttribute("Updated records", importStationsResult.getUpdated());
-        req.setAttribute("total Stations in Database ", importStationsResult.getTotalInDatabase());
-
+        addCookies(resp, importStationsResult);
         forwardToView(req, resp);
+    }
+
+    private void addCookies(HttpServletResponse resp, ImportStationsResult importStationsResult) {
+        String totalParsed = String.valueOf(importStationsResult.getTotal());
+        String newRecords = String.valueOf(importStationsResult.getNewRecords());
+        String updatedRecords = String.valueOf(importStationsResult.getUpdated());
+        String totalInDatabase = String.valueOf(importStationsResult.getTotalInDatabase());
+        Cookie updatedRecordsCookie = new Cookie("updatedRecords", updatedRecords);
+        Cookie totalInDatabaseCookie = new Cookie("totalInDatabase", totalInDatabase);
+        Cookie newRecordsCookie = new Cookie("newRecord", newRecords);
+        Cookie totalParsedCookie = new Cookie("totalParsed", totalParsed);
+        resp.addCookie(newRecordsCookie);
+        resp.addCookie(totalParsedCookie);
+        resp.addCookie(updatedRecordsCookie);
+        resp.addCookie(totalInDatabaseCookie);
     }
 
     private void forwardToView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
