@@ -50,42 +50,40 @@
 </head>
 <body>
 <form>
-<h2>Users Management</h2>
-<%
+    <h2>Users Management</h2>
+        <%
     List<User> users = (List<User>) request.getAttribute("users");
 %>
-<a class="button" href="add-user.jsp">Add User</a>
+    <a class="button" href="add-user.jsp">Add User</a>
     <form>
-<table>
-    <tr>
-        <th>Username</th>
-        <th>Name</th>
-        <th>E-mail</th>
-        <th>Status</th>
-        <th></th>
-        <%
-            for (User user : users) {
-        %>
-    </tr>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Status</th>
+                <th></th>
+                <%
+                    for (User user : users) {
+                %>
+            </tr>
 
-    <tr>
-        <td name=<%user.getUsername();%>
-            <%user.getUsername();%>
-                    </td>
-        <td><%user.getName();%></td>
-        <td><%
-            user.getEmail();
-        %></td>
-        <td>
-            <select name="status">
-                <option value="<%user.getUsername();%>"><input name=<%user.getStatus();%></option>
-                <option value="<%user.getUsername();%>"><input name=<%user.getStatus();%></option>
-
-            </select>
-        </td>
-    </tr>
-    <% }%>
-</table>
+            <tr>
+                <td name=<%user.getUsername();%>
+                        <%user.getUsername();%>
+                            </td>
+                <td><%user.getName();%></td>
+                <td><%
+                    user.getEmail();
+                %></td>
+                <td>
+                    <select name="status">
+                        <option value="<%user.getUsername();%>"><input name=<%user.getStatus();%></option>
+                    </select>
+                </td>
+            </tr>
+            <% }%>
+        </table>
     </form>
 </body>
 </html>
