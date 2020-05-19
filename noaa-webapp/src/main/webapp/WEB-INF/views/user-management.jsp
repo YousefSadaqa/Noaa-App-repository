@@ -29,14 +29,33 @@
     tr:nth-child(even) {
         background-color: #dddddd;
     }
+
+    .button {
+        background-color: #D3D3D3;
+        width: 210px;
+        height: 100px;
+        border: none;
+        color: black;
+        border: solid 1px black;
+        border-radius: 10px;
+        padding: 30px 60px;
+        text-align: center;
+        text-decoration: none;
+        display: inline;
+        font-size: 16px;
+        margin: 31px 22px;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
-
+<form>
 <h2>Users Management</h2>
 <%
     List<User> users = (List<User>) request.getAttribute("users");
 %>
+<a class="button" href="add-user.jsp">Add User</a>
+    <form>
 <table>
     <tr>
         <th>Username</th>
@@ -44,28 +63,29 @@
         <th>E-mail</th>
         <th>Status</th>
         <th></th>
+        <%
+            for (User user : users) {
+        %>
     </tr>
-    <%
-        for (User user : users) {
-    %>
+
     <tr>
-        <td><%user.getUsername();%>
-        </td>
+        <td name=<%user.getUsername();%>
+            <%user.getUsername();%>
+                    </td>
         <td><%user.getName();%></td>
         <td><%
             user.getEmail();
         %></td>
-        <td><%
-            if (user.getStatus().equals("INACTIVE")) {
-                request.setAttribute("status", "Enable");
-            }
-            request.setAttribute("status", "Disable");
-        %>
-            <a name="status"></a>
+        <td>
+            <select name="status">
+                <option value="<%user.getUsername();%>"><input name=<%user.getStatus();%></option>
+                <option value="<%user.getUsername();%>"><input name=<%user.getStatus();%></option>
+
+            </select>
         </td>
     </tr>
     <% }%>
 </table>
-
+    </form>
 </body>
 </html>

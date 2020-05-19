@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="noaa-usecases-impl" />
-        <module name="noaa-model" />
         <module name="noaa-webapp" />
-        <module name="noaa-usecases-spec" />
+        <module name="noaa-model" />
+        <module name="noaa-usecases-impl" />
         <module name="noaa-DAO" />
+        <module name="noaa-usecases-spec" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,7 +19,9 @@
       <module name="noaa-parent" target="1.8" />
       <module name="noaa-usecases-impl" target="1.8" />
       <module name="noaa-usecases-spec" target="1.8" />
+      <module name="noaa-web" target="1.5" />
       <module name="noaa-webapp" target="1.8" />
+      <module name="noaa-webapp1" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

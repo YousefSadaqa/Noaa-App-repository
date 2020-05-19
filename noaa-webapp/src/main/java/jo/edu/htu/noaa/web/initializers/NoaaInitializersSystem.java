@@ -8,9 +8,7 @@ import jo.edu.htu.noaa.gsod.ImportGSODHandler;
 import jo.edu.htu.noaa.gsod.ListGSODHandler;
 import jo.edu.htu.noaa.stations.ImportStationsHandler;
 import jo.edu.htu.noaa.stations.ListStationsHandler;
-import jo.edu.htu.noaa.users.AddUserHandler;
-import jo.edu.htu.noaa.users.AuthenticationHandler;
-import jo.edu.htu.noaa.users.ChangePasswordHandler;
+import jo.edu.htu.noaa.users.*;
 import jo.edu.htu.noaa.web.filters.AuthenticationFilter;
 import jo.edu.htu.noaa.web.servlets.*;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -34,14 +32,16 @@ public class NoaaInitializersSystem implements ServletContainerInitializer {
 
 
     }
-
     private void RegistrationUserManagementServlets(ServletContext ctx) {
         ListAllUsers listAllUsers = new ListAllUsers(dbUsersRepository());
-        UserManagementServlets userManagementServlets = new UserManagementServlets(listAllUsers);
+        EnableUserHandler enableUserHandler = new EnableUser(dbUsersRepository());
+        DisableUserHandler disableUserHandler = new DisableUser(dbUsersRepository());
+        UserManagementServlets userManagementServlets = new UserManagementServlets(listAllUsers, enableUserHandler, disableUserHandler);
         ServletRegistration.Dynamic userManagement = ctx.addServlet("userManagementServlets", userManagementServlets);
-        userManagement.addMapping("/usermanagement");
+        userManagement.addMapping("/user-management");
 
     }
+
 
     private void RegistrationImportStationsServlets(ServletContext ctx) {
         ImportStationsHandler importStationsHandler = new ImportStation(dbStationRepository());

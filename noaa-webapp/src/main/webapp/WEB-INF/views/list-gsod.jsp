@@ -25,19 +25,19 @@
     </div>
     <table>
         <tr>
-        <th>USAF-WBAN</th>
-        <th>Temp</th>
-        <th>Temp count</th>
-        <th>WDSP</th>
-        <th>WDSP Count</th>
-        <th>Max Temp</th>
-        <th>Min Temp</th>
+            <th>USAF-WBAN</th>
+            <th>Temp</th>
+            <th>Temp count</th>
+            <th>WDSP</th>
+            <th>WDSP Count</th>
+            <th>Max Temp</th>
+            <th>Min Temp</th>
         </tr>
         <%
             for (GlobalSummaryOfDay gs : gsods) {
         %>
         <tr>
-            <td><%gs.getStn();%> - <%= gs.getWban()%>
+            <td><%gs.getStn();%> -<%gs.getWban();%>
             </td>
             <td><%gs.getTemperature();%></td>
             <td><%gs.getTempCount();%></td>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="noaa-web:war">
+    <output-path>$PROJECT_DIR$/noaa-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>noaa-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="noaa-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="noaa-web:war exploded" />
+    </root>
+  </artifact>
+</component>

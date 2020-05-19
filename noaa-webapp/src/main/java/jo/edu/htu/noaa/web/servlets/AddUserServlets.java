@@ -1,6 +1,5 @@
 package jo.edu.htu.noaa.web.servlets;
 
-import jo.edu.htu.UsersRepository;
 import jo.edu.htu.noaa.Status;
 import jo.edu.htu.noaa.User;
 import jo.edu.htu.noaa.users.AddUserHandler;

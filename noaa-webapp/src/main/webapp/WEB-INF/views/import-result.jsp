@@ -20,20 +20,25 @@
 <label>Total Records Parsed: <%cookies[1].getValue();%></label>
 <label>Updated Records :<%cookies[2].getValue();%></label>
 <%
-    Cookie cookie0 = new Cookie("updatedRecords", "");
-    Cookie cookie1 = new Cookie("totalInDatabase", "");
-    Cookie cookie2 = new Cookie("newRecord", "");
-    Cookie cookie3 = new Cookie("totalParsed", "");
-    cookie0.setMaxAge(0);
-    cookie1.setMaxAge(0);
-    cookie2.setMaxAge(2);
-    cookie3.setMaxAge(3);
-    response.addCookie(cookie0);
-    response.addCookie(cookie1);
-    response.addCookie(cookie2);
-    response.addCookie(cookie3);
+    deleteCookies();
 
 
 %>
 </body>
 </html>
+<%!
+    private void deleteCookies() {
+        Cookie cookie0 = new Cookie("updatedRecords", "");
+        Cookie cookie1 = new Cookie("totalInDatabase", "");
+        Cookie cookie2 = new Cookie("newRecord", "");
+        Cookie cookie3 = new Cookie("totalParsed", "");
+        cookie0.setMaxAge(0);
+        cookie1.setMaxAge(0);
+        cookie2.setMaxAge(2);
+        cookie3.setMaxAge(3);
+        response.addCookie(cookie0);
+        response.addCookie(cookie1);
+        response.addCookie(cookie2);
+        response.addCookie(cookie3);
+    }
+%>

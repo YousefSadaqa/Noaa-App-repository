@@ -1,0 +1,43 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="noaa-web:war exploded">
+    <output-path>$PROJECT_DIR$/noaa-web/target/noaa-web-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>noaa-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="noaa-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="noaa-usecases-impl-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="noaa-usecases-impl" />
+          </element>
+          <element id="archive" name="noaa-usecases-spec-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="noaa-usecases-spec" />
+          </element>
+          <element id="archive" name="noaa-model-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="noaa-model" />
+          </element>
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.19" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-dbcp2:2.7.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.7.0" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="archive" name="noaa-DAO-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="noaa-DAO" />
+          </element>
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/noaa-web/target/noaa-web-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="noaa-web/web/Web" />
+    </root>
+  </artifact>
+</component>
