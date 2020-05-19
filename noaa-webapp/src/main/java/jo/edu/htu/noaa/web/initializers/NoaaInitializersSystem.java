@@ -18,8 +18,12 @@ import java.util.EnumSet;
 import java.util.Set;
 
 public class NoaaInitializersSystem implements ServletContainerInitializer {
+
+    private BasicDataSource dataSource;
+
     @Override
     public void onStartup(Set<Class<?>> set, ServletContext ctx) throws ServletException {
+        getBasicDataSource();
         RegistrationLoginServlets(ctx);
         RegistrationAddUserServlets(ctx);
         RegistrationChangePasswordServlets(ctx);
@@ -32,6 +36,7 @@ public class NoaaInitializersSystem implements ServletContainerInitializer {
 
 
     }
+
     private void RegistrationUserManagementServlets(ServletContext ctx) {
         ListAllUsers listAllUsers = new ListAllUsers(dbUsersRepository());
         EnableUserHandler enableUserHandler = new EnableUser(dbUsersRepository());
@@ -102,6 +107,7 @@ public class NoaaInitializersSystem implements ServletContainerInitializer {
     }
 
     private DBUsersRepository dbUsersRepository() {
+        // TODO this should be only one datasource for all repositories
         BasicDataSource dataSource = getBasicDataSource();
         return new DBUsersRepository(dataSource);
     }
@@ -117,11 +123,13 @@ public class NoaaInitializersSystem implements ServletContainerInitializer {
     }
 
     private BasicDataSource getBasicDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/countries?serverTimezone=UTC");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        if (dataSource == null) {
+            dataSource = new BasicDataSource();
+            dataSource.setUrl("jdbc:mysql://localhost:3306/countries?serverTimezone=UTC");
+            dataSource.setUsername("root");
+            dataSource.setPassword("root");
+            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        }
         return dataSource;
     }
 }

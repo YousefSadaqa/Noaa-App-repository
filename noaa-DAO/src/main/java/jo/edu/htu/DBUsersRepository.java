@@ -84,9 +84,18 @@ public class DBUsersRepository implements UsersRepository {
 
     @Override
     public void disable(String username) {
+        updateUserStatus(username, String.valueOf(Status.INACTIVE));
+    }
+
+    @Override
+    public void enable(String username) {
+        updateUserStatus(username, String.valueOf(Status.ACTIVE));
+    }
+
+    private void updateUserStatus(String username, String status) {
         try (Connection connection = dataSource.getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement(CHANGE_STATUS)) {
-                statement.setString(1, String.valueOf(Status.INACTIVE));
+                statement.setString(1, status);
                 statement.setString(2, username);
                 int updated = statement.executeUpdate();
                 if (updated == 0) {
@@ -98,21 +107,6 @@ public class DBUsersRepository implements UsersRepository {
         }
     }
 
-    @Override
-    public void enable(String username) {
-        try (Connection connection = dataSource.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement(CHANGE_STATUS)) {
-                statement.setString(1, String.valueOf(Status.ACTIVE));
-                statement.setString(2, username);
-                int updated = statement.executeUpdate();
-                if (updated == 0) {
-                    throw new RecordNotFoundException("No rows Were updated");
-                }
-            }
-        } catch (SQLException e) {
-            throw new DaoException(e);
-        }
-    }
 
     @Override
     public List<User> listAll() {

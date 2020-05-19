@@ -14,7 +14,6 @@ public class ListGSOD implements ListGSODHandler {
 
     @Override
     public ListGSODResult list(ListGSODRequest request) {
-
         if (request.getReadingDateFrom() != null || request.getGetReadingDateTo() != null) {
             int fromDate = Integer.parseInt(String.valueOf(request.getReadingDateFrom()));
             int toDate = Integer.parseInt(String.valueOf(request.getGetReadingDateTo()));

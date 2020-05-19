@@ -1,14 +1,13 @@
 package jo.edu.htu.noaa;
 
-import jo.edu.htu.DBUsersRepository;
-import jo.edu.htu.noaa.User;
+import jo.edu.htu.UsersRepository;
 import jo.edu.htu.noaa.users.AddUserHandler;
 
 public class AddUser implements AddUserHandler {
 
-    private DBUsersRepository repository;
+    private UsersRepository repository;
 
-    public AddUser(DBUsersRepository repository) {
+    public AddUser(UsersRepository repository) {
         this.repository = repository;
     }
 

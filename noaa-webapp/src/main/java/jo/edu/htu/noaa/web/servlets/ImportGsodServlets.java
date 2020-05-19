@@ -57,6 +57,7 @@ public class ImportGsodServlets extends HttpServlet {
         String newRecords = String.valueOf(importGSODResult.getNewRecords());
         String updatedRecords = String.valueOf(importGSODResult.getUpdated());
         String totalInDatabase = String.valueOf(importGSODResult.getTotalInDatabase());
+        // TODO you can pass those as attributes
         Cookie updatedRecordsCookie = new Cookie("updatedRecords", updatedRecords);
         Cookie totalInDatabaseCookie = new Cookie("totalInDatabase", totalInDatabase);
         Cookie newRecordsCookie = new Cookie("newRecord", newRecords);
